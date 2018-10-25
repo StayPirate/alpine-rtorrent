@@ -1,7 +1,7 @@
-from alpine-tmux
+FROM alpine
 
 LABEL maintainer="Gianluca Gabrielli" mail="tuxmealux+dockerhub@protonmail.com"
-LABEL description="rtorrent on Alpine Linux, minimal installation."
+LABEL description="rTorrent on Alpine Linux, minimal installation."
 LABEL version="1.0"
 
 ENV UGID=666
