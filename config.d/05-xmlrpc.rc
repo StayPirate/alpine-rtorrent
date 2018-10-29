@@ -1,0 +1,11 @@
+## Run the rTorrent process as a daemon in the background
+# mandatory for XMLRPC since rTorrent 0.9.7
+system.daemon.set = true
+
+## control via XMLRPC sockets
+#Local UNIX socket
+#network.scgi.open_local = (cat,(session.path),rpc.socket)
+#execute.nothrow = chmod,770,(cat,(session.path),rpc.socket)
+
+#INET socket
+network.scgi.open_port = 0.0.0.0:16891
