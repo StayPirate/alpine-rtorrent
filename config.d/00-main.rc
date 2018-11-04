@@ -16,11 +16,15 @@ method.insert = cfg.watch,    private|const|string, (cat,(cfg.basedir),"watch/")
 
 
 ## Create instance directories
+#execute.throw = sh, -c, (cat,\
+#    "mkdir -p \"",(cfg.download),"\" ",\
+#    "\"",(cfg.logs),"\" ",\
+#    "\"",(cfg.session),"\" ",\
+#    "\"",(cfg.watch),"/load\" ",\
+#    "\"",(cfg.watch),"/start\" ")
+
 execute.throw = sh, -c, (cat,\
-    "mkdir -p \"",(cfg.download),"\" ",\
-    "\"",(cfg.logs),"\" ",\
-    "\"",(cfg.session),"\" ",\
-    "\"",(cfg.watch),"/load\" ",\
+    "mkdir -p \"",(cfg.watch),"/load\" ",\
     "\"",(cfg.watch),"/start\" ")
 
 
