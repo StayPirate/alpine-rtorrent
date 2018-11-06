@@ -31,7 +31,7 @@ docker container run -d --name rtorrent \
   alpine-rtorrent:latest
 ```
 
-You should store downloaded files outside the container, explanation on how to do it is shown below on this file. Please continue to read or jump to [Bind Mounts](#BindMounts).  
+You should store downloaded files outside the container, explanation on how to do it is shown below on this file. Please continue to read or jump to [Bind Mounts](#Bind-Mounts).  
 If the user you are using is part of the docker group, then you can execute the above commands without sudo, otherwise use sudo.
 
 ## Ports
