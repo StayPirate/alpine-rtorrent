@@ -30,7 +30,5 @@ If the user you are logged in the host system is part of the docker group you ca
 ## Why this Dockerfile
 
 **Functionalities.** Out of the box rTorrent doesn't enable most of its features, using this container you will be provided with a modular and modern rTorrent configuration.
-
 **Security first!** Docker has critical side effects if used improperly, within this container rTorrent is run by an unprivileged user.
-
 **Image size.** This is a very tiny image since it is based on Alpine Linux, the only rTorrent package is installed from Alpine Linux's official repository. No other software is installed or manually added (it can be easily checked from the Dockerfile).
