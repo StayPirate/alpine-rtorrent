@@ -9,19 +9,8 @@
 
 ## Instance layout (base paths)
 method.insert = cfg.download, private|const|string, (cat,(cfg.basedir),"download/")
-method.insert = cfg.logs,     private|const|string, (cat,(cfg.basedir),"log/")
-method.insert = cfg.logfile,  private|const|string, (cat,(cfg.logs),"rtorrent-",(system.time),".log")
 method.insert = cfg.session,  private|const|string, (cat,(cfg.basedir),".session/")
 method.insert = cfg.watch,    private|const|string, (cat,(cfg.basedir),"watch/")
-
-
-## Create instance directories
-#execute.throw = sh, -c, (cat,\
-#    "mkdir -p \"",(cfg.download),"\" ",\
-#    "\"",(cfg.logs),"\" ",\
-#    "\"",(cfg.session),"\" ",\
-#    "\"",(cfg.watch),"/load\" ",\
-#    "\"",(cfg.watch),"/start\" ")
 
 execute.throw = sh, -c, (cat,\
     "mkdir -p \"",(cfg.watch),"/load\" ",\
@@ -68,9 +57,6 @@ network.xmlrpc.size_limit.set = 16M
 ## Basic operational settings (no need to change these)
 session.path.set = (cat, (cfg.session))
 directory.default.set = (cat, (cfg.download))
-log.execute = (cat, (cfg.logs), "execute.log")
-# FIXME: move all the logs to a specific .rc or on each one in the proper .rc
-#log.xmlrpc = (cat, (cfg.logs), "xmlrpc.log")
 execute.nothrow = sh, -c, (cat, "echo >",\
     (session.path), "rtorrent.pid", " ",(system.pid))
 
@@ -103,14 +89,5 @@ method.insert = d.session_file, simple, "cat=(session.path), (d.hash), .torrent"
 schedule2 = watch_load, 11, 10, ((load.verbose, (cat, (cfg.watch), "load/*.torrent")))
 ## Add & download straight away
 schedule2 = watch_start, 10, 10, ((load.start_verbose, (cat, (cfg.watch), "start/*.torrent")))
-
-
-## Logging:
-##   Levels = critical error warn notice info debug
-##   Groups = connection_* dht_* peer_* rpc_* storage_* thread_* tracker_* torrent_*
-print = (cat, "Logging to ", (cfg.logfile))
-log.open_file = "log", (cfg.logfile)
-log.add_output = "info", "log"
-#log.add_output = "tracker_debug", "log"
 
 ### END of rtorrent.rc ###

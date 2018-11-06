@@ -1,0 +1,6 @@
+## Logging:
+##   Levels = critical error warn notice info debug
+method.insert = cfg.logfile,  private|const|string, (cat,"/dev/stdout")
+log.open_file = "log", (cfg.logfile)
+log.add_output = "info", "log"
+log.add_output = "torrent_info", "log"
