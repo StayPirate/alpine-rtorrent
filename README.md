@@ -61,9 +61,9 @@ There are two directories that should be mapped outside the container.
    
  - ```/home/rtorrent/rtorrent/watch```
    The use of this directory is not mandatory, so you should outside map it only if you actually use it.  
-   The first time you will run the container, two folders will be created as sub-directories: ```watch\load``` and ```watch\start```. These two new folders are constantly watched by the rTorrent daemon, and as soon as you drop a ```.torrent``` file on them it would be either loaded or started.
+   The first time you will run the container, two folders will be created as sub-directories: ```watch/load``` and ```watch/start```. These two new folders are constantly watched by the rTorrent daemon, and as soon as you drop a ```.torrent``` file on them it would be either loaded or started.
 
 ## Logs
 
-To let rTorrent becomes more docker compliant, I've configured logs to be written on ```\dev\stdout```. In this way, it is possible to catch them with [docker logs](https://docs.docker.com/engine/reference/commandline/logs/).  
+To let rTorrent becomes more docker compliant, I've configured logs to be written on ```/dev/stdout```. In this way, it is possible to catch them with [docker logs](https://docs.docker.com/engine/reference/commandline/logs/).  
 This behavior can be changed editing the [```config.d/01-log.rc```](config.d/01-log.rc) file.
