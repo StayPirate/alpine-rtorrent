@@ -19,7 +19,6 @@ RUN addgroup -g $UGID rtorrent && \
 COPY --chown=rtorrent:rtorrent config.d/ /home/rtorrent/rtorrent/config.d/
 COPY --chown=rtorrent:rtorrent .rtorrent.rc /home/rtorrent/
 
-#This volume make it easier to delete rtorrent lock files after a bad shutdown.
 VOLUME /home/rtorrent/rtorrent/.session
 
 EXPOSE 16891
