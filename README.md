@@ -42,6 +42,7 @@ Port ```50000``` is the port where rTorrent starts to listen. It's important tha
 Port ```6881``` is the port used by [DHT](https://en.wikipedia.org/wiki/Distributed_hash_table, 'Distributed Hash Table'). It needs to be open/forwarded in UDP and TCP mode either at firewall and router level.  
 Port ```16891``` is used by the [XMLRPC](https://en.wikipedia.org/wiki/XML-RPC) socket. It is used by third-party applications to fully control rTorrent. **Whoever has access to this port can execute any command inside your container.** This image uses an unprivileged user, hence damage is contained, but it wouldn't be nice anyway. I expose (not publish) this port to let a web interface communicates with rTorrent, this allows me to control rTorrent from web-ui instead of using it from the command line. 
 The web-ui I use is called [Flood](https://github.com/jfurrow/flood), and I run it in another container. Both containers are connected to a dedicated network so only Flood can reach this socket. Check [Docker network](https://docs.docker.com/engine/reference/commandline/network/) for more information about how to do it.  
+If you are looking for a fast way to either run rTorrent and Flood using just one command, check my [composefile](https://github.com/StayPirate/rtorrent-flood) out 😉.
 
 If it's not your intention to control rTorrent from a third-party application, do not use port ```16891```.
 
