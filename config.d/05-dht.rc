@@ -9,10 +9,10 @@ execute.throw = sh, -c, (cat, "mkdir -p " , (cfg.dht_session))
 
 ## UDP port to use for DHT.
 dht.port.set = 6881
-dht.add_node=dht.transmissionbt.com
-dht.add_node=router.utorrent.com
-dht.add_node=router.bittorrent.com
-dht.add_node=dht.vuze.com
+#dht.add_node=dht.transmissionbt.com
+#dht.add_node=router.utorrent.com
+#dht.add_node=router.bittorrent.com
+#dht.add_node=dht.vuze.com
 protocol.pex.set = 1
 
 ######################################################################
