@@ -50,7 +50,7 @@ If it's not your intention to control rTorrent from a third-party application, d
 
 There is a volume which maps the directory that rTorrent uses to store session data.
 This is useful for a couple of reasons.  
-~~*First*, when the container is badly stopped and the daemon does not have time to remove its [lock file](https://en.wikipedia.org/wiki/File_locking), you can easily access it from the host system and delete it by yourself.~~ Lock file has been disabled from [this commit](https://github.com/StayPirate/alpine-rtorrent/commit/WAITING_FOR_COMMIT_ID), the container can now be automatically restarted.  
+~~*First*, when the container is badly stopped and the daemon does not have time to remove its [lock file](https://en.wikipedia.org/wiki/File_locking), you can easily access it from the host system and delete it by yourself.~~ Lock file has been disabled from [this commit](https://github.com/StayPirate/alpine-rtorrent/commit/e668903b304410b45de0e7f4ad245258f805c8a1), the container can now be automatically restarted.  
 *Second*, all the information about the downloading torrents will be preserved. Don't forget that it is not a named volume, you need to know the hash of the volume created by your container and you can get it with ```docker container inspect --format '{{ .Mounts }}' rtorrent```. If you prefer, a named volume can be passed by command line which overrides the one in the Dockerfile. It will ensure the operation of switching containers easier. To do it, you need to pass ```-v rtorrent_session:/home/rtorrent/rtorrent/.session``` at container creation time.
 
 ## Bind Mounts
