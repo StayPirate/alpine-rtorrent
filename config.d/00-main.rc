@@ -16,6 +16,10 @@ execute.throw = sh, -c, (cat,\
     "mkdir -p \"",(cfg.watch),"/load\" ",\
     "\"",(cfg.watch),"/start\" ")
 
+## There is no point in using lock file in a docker container since it will only
+## give you major headaches if the process dies unexpectedly.
+## Moreover, be sure to not use the same session volume with more than one container.
+session.use_lock.set = no
 
 ## Listening port for incoming peer traffic (fixed; you can also randomize it)
 network.port_range.set = 50000-50000
