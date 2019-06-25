@@ -1,6 +1,11 @@
 ## Logging:
 ##   Levels = critical error warn notice info debug
-method.insert = cfg.logfile,  private|const|string, (cat,"/dev/stdout")
-log.open_file = "log", (cfg.logfile)
-log.add_output = "info", "log"
-log.add_output = "torrent_info", "log"
+method.insert = cfg.logs,          private|const|string, (cat,"/var/log/")
+method.insert = cfg.info_logfile,  private|const|string, (cat,(cfg.logs),"rtorrent-info.log")
+method.insert = cfg.error_logfile, private|const|string, (cat,(cfg.logs),"rtorrent-error.log")
+log.open_file = "info-log", (cfg.info_logfile)
+log.add_output = "info", "info-log"
+log.open_file = "error-log", (cfg.error_logfile)
+log.add_output = "critical", "error-log"
+log.add_output = "error", "error-log"
+log.add_output = "warn", "error-log"

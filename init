@@ -1,0 +1,14 @@
+#!/bin/sh
+PUID=${PUID:=666}
+PGID=${PGID:=666}
+
+# chown rTorrent home directory
+chown -R "$PUID:$PGID" /home/rtorrent
+
+chown "$PUID:$PGID" \
+	/var/log/rtorrent-error.log \
+	/var/log/rtorrent-info.log
+
+cd /home/rtorrent
+
+exec su-exec $PUID:$PGID rtorrent -n -o import=/home/rtorrent/.rtorrent.rc

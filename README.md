@@ -46,6 +46,10 @@ If you are looking for a fast way to either run rTorrent and Flood using just on
 
 If it's not your intention to control rTorrent from a third-party application, do not use port ```16891```.
 
+## Environment variables
+- **UID** : user id (default : 666)
+- **GID** : group id (defaut : 666)
+
 ## Volumes
 
 There is a volume which maps the directory that rTorrent uses to store session data.
@@ -66,5 +70,5 @@ There are two directories that should be mapped outside the container.
 
 ## Logs
 
-To let rTorrent becomes more docker compliant, I've configured logs to be written on ```/dev/stdout```. In this way, it is possible to catch them with [docker logs](https://docs.docker.com/engine/reference/commandline/logs/).  
+To let rTorrent becomes more docker compliant, I've configured logs to be written on ```/dev/stdout``` & ```/dev/stderr```. In this way, it is possible to catch them with [docker logs](https://docs.docker.com/engine/reference/commandline/logs/).  
 This behavior can be changed editing the [```config.d/01-log.rc```](config.d/01-log.rc) file.
