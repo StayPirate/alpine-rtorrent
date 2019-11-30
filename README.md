@@ -17,7 +17,7 @@ Unfortunately, images based on Alpine Linux are no more than just a simple insta
 
 ## Run it!
 
-If you are going to run a container in a x86-64 computer you can directly pull this image from the [official docker store](https://store.docker.com/community/images/tuxmealux/alpine-rtorrent) by executing: ```docker container run -d --name rtorrent -p 50000:50000 -p 6881:6881 -p 6881:6881/udp tuxmealux/alpine-rtorren```
+If you are going to run a container in a x86-64 computer you can directly pull this image from the [official docker store](https://store.docker.com/community/images/tuxmealux/alpine-rtorrent) by executing: ```docker container run -d --name rtorrent -p 50000:50000 -p 6881:6881 -p 6881:6881/udp tuxmealux/alpine-rtorrent```
 
 Otherwise, you can build it by first cloning this git repository (mandatory if you want to run it on a [rpi](https://en.wikipedia.org/wiki/Raspberry_Pi, 'Raspberry PI'))
 
